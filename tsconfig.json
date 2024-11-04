@@ -1,0 +1,13 @@
+{
+    "compilerOptions" : {
+        "target" : "ES6",
+        "outDir" : "./dist"
+    },
+    "include" : ["./src"],
+    "exclude" : []
+  }
+ 
+ 
+  /* Client ID: ths7Nl8QLApxhwCEuYL1rI4WGan5HUo3Ld1HsbeUfEYE_wYbjBJPOZYCGVhJso4s */
+  /* Client secret: 35wCwqW4mtQsr4ChjIN_15AryAb5uZDW2GPRyKZ8oDO8eT3DPTne-Otoft--ySauDMOvHBtOaPJK45M4XGTLog */
+  /* Access token : mHDgbBo53I_Zuvv3FvFFUO2ITt3uzIUIW2H_-4wp6C70g_OdySUNGP53U_qW9xTt */
