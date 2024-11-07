@@ -1,12 +1,324 @@
+:root {
+    --metal-black: #263126;
+    --beige: #d2c57d;
+    --blueish: #22777a;
+    --yellowish: #FFC107;
+    --orange: #d77c1e;
+    --oranger: #ae4d17;
+
+    --lato-thin: "Lato", sans-serif;
+    --lato-thin-weight: 100;
+
+    --lato-light: "Lato", sans-serif;
+    --lato-light-weight: 300;
+
+    --lato-regular: "Lato", sans-serif;
+    --lato-regular-weight: 400;
+
+    --lato-bold: "Lato", sans-serif;
+    --lato-bold-weight: 700;
+
+    --lato-black: "Lato", sans-serif;
+    --lato-black-weight: 900;
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
 }
 
 body {
-    max-width: 100vw;
-    max-height: 100vh;
-    background-color: aquamarine;
+    font-family: var(--lato-regular);
+    font-weight: var(--lato-regular-weight);
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--metal-black);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+a {
+    color: var(--blueish);
+    font-weight: 700;
+}
+
+a:visited {
+    color: var(--oranger);
+}
+
+header {    
+    padding: 1.8rem;
+    display: flex;
+    justify-content: center;
+    color: azure;
+}
+
+h1 {
+    color: white;
+}
+
+main {    
+    position: relative;
+    flex: 1;    
+    display: flex;
+    justify-content: center;
+    overflow: hidden;    
+}
+
+main > section {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 100%; 
+    opacity: 0;   
+    pointer-events: none;
+    transition: opacity .5s ease;
+
+}
+
+.page--visible {
+    opacity: 1;
+    pointer-events: all;
+    transition: opacity .5 ease;
+    z-index: 3;
+}
+
+#searchPage {
+    padding: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchpage--inputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.searchpage--inputWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+
+#searchSongInput, #searchArtistInput {
+    
+    max-width: 90%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#searchSongBtn, #searchArtistBtn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--blueish);
+    color: white;
+    cursor: pointer;
+}
+#searchSongBtn:hover, #searchArtistBtn:hover {
+    background-color: #1b5e5f;
+}
+
+
+#searchResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#results  {
+    max-height: 100%;
+    width: 90%;
+    overflow-y: auto;
+    padding: 1rem 4rem 1rem 4rem;
+    background-color: var(--orange);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;    
+}
+
+.searchResult--noResult {
+    grid-column: 1 / -1;
+    text-align: center;
+    justify-self: center;
+    color: var(--blueish);
+    font-size: 2rem;
+}
+
+#results::-webkit-scrollbar, #favorites::-webkit-scrollbar {
+    display: none;
+}
+
+.result-item {
+    background-color: var(--orange);
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: auto 1fr 1fr;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: .25rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    background-color:var(--beige);
+}
+
+.result-item h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.result-item p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.result-item a {
+    grid-column: 1 / 2;
+    grid-row: 3;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.result-item .star-button {
+    grid-column: 2 / 3;
+    grid-row: 3;
+    background-color: var(--blueish);
+    border-radius: .5rem;
+    padding: 0.5rem;
+    text-align: center;
+    color: var(--yellowish);
+    font-size: 1.2rem;
+    aspect-ratio: 1;
+}
+
+#songFavorites {
+    max-height: 100%;    
+    width: 90%;
+    padding: 1rem 4rem 1rem 4rem;
+    background-color: var(--blueish);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
+}
+
+#artistFavorites {
+    max-height: 100%;
+    width: 90%;
+    padding: 1rem 4rem 1rem 4rem;
+    background-color: var(--blueish);
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem
+
+}
+
+#artistFavorites .favorite-item {
+    background-color:var(--beige);
+}
+
+#favorites {
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 1rem 4rem 1rem 4rem;
+    background-color: var(--orange);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#favorites h2 {
+    margin: 2rem;
+    font-size: 2.5rem;
+}
+
+.favorite-item {
+    background-color: var(--beige);
+    display: grid;
+    grid-template-columns: 90% 10%;
+    grid-template-rows: auto 1fr 1fr;
+    gap: .5rem;
+    padding: 1rem;
+    border-radius: .25rem;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.favorite-item h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    padding: 0.5rem;
+    text-align: left;    
+}
+
+.favorite-item p {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.favorite-item a {
+    grid-column: 1 / 2;
+    grid-row: 3;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.favorite-item .remove-favoriteBtn {
+    aspect-ratio: 1;
+    grid-column: 2 / 3;
+    grid-row: 3;
+    background-color: var(--blueish);
+    border-radius: .5rem;
+    padding: 0.5rem;
+    color: var(--yellowish);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+footer {
+    padding: 1rem 5rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    min-height: 10vh;    
+    display: flex;
+    justify-content: space-around;
+}
+
+footer button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: azure;
+}
+
+footer button:hover {
+    color: var(--blueish);
 }

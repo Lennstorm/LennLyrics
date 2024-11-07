@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/dist/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Righteous&display=swap" rel="stylesheet">
     <title>LennLyrics</title>
 </head>
+
 <body>
+    <header>
+        <h1>Välkommen till din musikdatabas!</h1>
+    </header>
+
+    <main>
+        <section class="page" id="searchPage">
+            <div class="searchpage--inputContainer">
+                <div class="searchpage--inputWrapper">                    
+                    <input type="text" id="searchSongInput" placeholder="Sök efter låttitel">
+                    <button id="searchSongBtn">Sök</button>
+                </div>
+                <div class="searchpage--inputWrapper">                    
+                    <input type="text" id="searchArtistInput" placeholder="Sök efter artist">
+                    <button id="searchArtistBtn">Sök</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="page" id="searchResult">
+            <div id="results"></div>
+
+        </section>
+
+        <section class="page" id="favorite-page">
+            <div id="favorites">
+
+                <h2>Songs</h2>
+                <div id="songFavorites"></div>
+                <h2>Artists</h2>
+                <div id="artistFavorites"></div>
+            </div>
+            
+        </section>
+
+
+    </main>
+
+    <footer>
+        <button id="homeBtn">Search</button>
+        <button id="searchPageBtn">Results</button>
+        <button id="favoritesBtn">Favorites</button>
+
+
+    </footer>
     <script src="/dist/index.js"></script>
 </body>
+
 </html>
